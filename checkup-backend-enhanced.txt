@@ -1,0 +1,628 @@
+// Add these methods to your existing CheckupForm.cs class to support the enhanced UI
+
+// Enhanced button hover effects
+private void btnAddMedicine_MouseEnter(object sender, EventArgs e)
+{
+    btnAddMedicine.BackColor = Color.FromArgb(34, 139, 34);
+    btnAddMedicine.Transform(1.05f); // Slightly scale up
+}
+
+private void btnAddMedicine_MouseLeave(object sender, EventArgs e)
+{
+    btnAddMedicine.BackColor = Color.FromArgb(40, 167, 69);
+    btnAddMedicine.Transform(1.0f); // Reset scale
+}
+
+private void btnRemoveMedicine_MouseEnter(object sender, EventArgs e)
+{
+    btnRemoveMedicine.BackColor = Color.FromArgb(192, 0, 0);
+    btnRemoveMedicine.Transform(1.05f);
+}
+
+private void btnRemoveMedicine_MouseLeave(object sender, EventArgs e)
+{
+    btnRemoveMedicine.BackColor = Color.FromArgb(220, 53, 69);
+    btnRemoveMedicine.Transform(1.0f);
+}
+
+private void btnPreview_MouseEnter(object sender, EventArgs e)
+{
+    btnPreview.BackColor = Color.FromArgb(255, 165, 0);
+    btnPreview.Transform(1.02f);
+}
+
+private void btnPreview_MouseLeave(object sender, EventArgs e)
+{
+    btnPreview.BackColor = Color.FromArgb(255, 193, 7);
+    btnPreview.Transform(1.0f);
+}
+
+private void btnFinish_MouseEnter(object sender, EventArgs e)
+{
+    btnFinish.BackColor = Color.FromArgb(34, 139, 34);
+    btnFinish.Transform(1.02f);
+}
+
+private void btnFinish_MouseLeave(object sender, EventArgs e)
+{
+    btnFinish.BackColor = Color.FromArgb(40, 167, 69);
+    btnFinish.Transform(1.0f);
+}
+
+// Enhanced CheckupForm_Load method with animations
+private void CheckupForm_Load(object sender, EventArgs e)
+{
+    lblDoctorName.Text = $"Dr. {doctorName}";
+    lblPatientName.Text = $"{patientName}";
+    lblDate.Text = $"{date.ToString("dddd, MMMM dd, yyyy")}";
+    
+    LoadMedicineSuggestions();
+    LoadUnitSuggestions();
+    UpdateMedicineCount();
+    
+    // Add fade-in animation
+    AnimateFormLoad();
+    
+    // Set up tooltips with enhanced descriptions
+    SetupEnhancedTooltips();
+    
+    Console.WriteLine($"CheckupForm_Load - Enhanced UI loaded successfully");
+    Console.WriteLine($"CheckupForm_Load - lblDoctorName.Text: {lblDoctorName.Text}");
+    Console.WriteLine($"CheckupForm_Load - lblPatientName.Text: {lblPatientName.Text}");
+    Console.WriteLine($"CheckupForm_Load - lblDate.Text: {lblDate.Text}");
+}
+
+private void AnimateFormLoad()
+{
+    // Start with form slightly transparent
+    this.Opacity = 0;
+    
+    // Create timer for fade-in effect
+    Timer fadeTimer = new Timer();
+    fadeTimer.Interval = 50;
+    fadeTimer.Tick += (s, e) =>
+    {
+        if (this.Opacity < 1)
+        {
+            this.Opacity += 0.1;
+        }
+        else
+        {
+            fadeTimer.Stop();
+            fadeTimer.Dispose();
+        }
+    };
+    fadeTimer.Start();
+}
+
+private void SetupEnhancedTooltips()
+{
+    toolTip.SetToolTip(txtMedicine, "💊 Start typing medicine name for autocomplete suggestions");
+    toolTip.SetToolTip(txtDosage, "📊 Enter the prescribed dosage (e.g., 500, 250, 1)");
+    toolTip.SetToolTip(txtUnit, "📏 Select unit (mg, ml, tablet, capsule, etc.)");
+    toolTip.SetToolTip(btnAddMedicine, "➕ Add medicine to prescription list");
+    toolTip.SetToolTip(btnRemoveMedicine, "🗑️ Remove selected medicine from list");
+    toolTip.SetToolTip(lstMedicines, "📋 Your prescribed medicines list");
+    toolTip.SetToolTip(txtNotes, "📝 Add special instructions or additional notes");
+    toolTip.SetToolTip(btnPreview, "👁️ Preview how the prescription PDF will look");
+    toolTip.SetToolTip(btnFinish, "✅ Complete checkup and save prescription");
+    toolTip.SetToolTip(btnToggleFullScreen, "⛶ Toggle full-screen mode for better focus");
+}
+
+// Enhanced btnAddMedicine_Click with animations
+private void btnAddMedicine_Click(object sender, EventArgs e)
+{
+    string medicine = txtMedicine.Text.Trim();
+    string dosage = txtDosage.Text.Trim();
+    string unit = txtUnit.Text.Trim();
+
+    Console.WriteLine($"btnAddMedicine_Click - Medicine: {medicine ?? "null"}, Dosage: {dosage ?? "null"}, Unit: {unit ?? "null"}");
+
+    if (!string.IsNullOrEmpty(medicine) && !string.IsNullOrEmpty(dosage) && !string.IsNullOrEmpty(unit))
+    {
+        var medicineInfo = new MedicineInfo(medicine, dosage, unit);
+        if (!selectedMedicines.Exists(m => m.Name == medicine && m.Dosage == dosage && m.Unit == unit))
+        {
+            selectedMedicines.Add(medicineInfo);
+            lstMedicines.Items.Add(medicineInfo);
+            
+            // Clear fields with animation
+            AnimateClearFields();
+            
+            // Update medicine count
+            UpdateMedicineCount();
+            
+            // Show success animation
+            ShowSuccessMessage($"✅ {medicine} added successfully!");
+            
+            Console.WriteLine($"btnAddMedicine_Click - Medicine added: {medicineInfo}, Total medicines: {selectedMedicines.Count}");
+        }
+        else
+        {
+            ShowWarningMessage("⚠️ This medicine is already in the list!");
+            Console.WriteLine("btnAddMedicine_Click - Medicine not added: Duplicate entry");
+        }
+    }
+    else
+    {
+        ShowWarningMessage("⚠️ Please fill in all fields: Medicine Name, Dosage, and Unit.");
+        Console.WriteLine("btnAddMedicine_Click - Medicine not added: Missing fields");
+    }
+}
+
+private void AnimateClearFields()
+{
+    // Animate field clearing
+    Timer clearTimer = new Timer();
+    clearTimer.Interval = 100;
+    int step = 0;
+    
+    clearTimer.Tick += (s, e) =>
+    {
+        step++;
+        if (step == 1)
+        {
+            txtMedicine.BackColor = Color.FromArgb(220, 255, 220);
+            txtDosage.BackColor = Color.FromArgb(220, 255, 220);
+            txtUnit.BackColor = Color.FromArgb(220, 255, 220);
+        }
+        else if (step == 2)
+        {
+            txtMedicine.Clear();
+            txtDosage.Clear();
+            txtUnit.Clear();
+        }
+        else if (step == 3)
+        {
+            txtMedicine.BackColor = Color.FromArgb(248, 249, 250);
+            txtDosage.BackColor = Color.FromArgb(248, 249, 250);
+            txtUnit.BackColor = Color.FromArgb(248, 249, 250);
+            txtMedicine.Focus();
+            clearTimer.Stop();
+            clearTimer.Dispose();
+        }
+    };
+    clearTimer.Start();
+}
+
+// Enhanced btnRemoveMedicine_Click with confirmation
+private void btnRemoveMedicine_Click(object sender, EventArgs e)
+{
+    if (lstMedicines.SelectedItem != null)
+    {
+        var medicineInfo = lstMedicines.SelectedItem as MedicineInfo;
+        
+        // Show confirmation dialog
+        DialogResult result = MessageBox.Show(
+            $"Are you sure you want to remove '{medicineInfo.Name}' from the prescription?",
+            "Confirm Removal",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question);
+            
+        if (result == DialogResult.Yes)
+        {
+            selectedMedicines.Remove(medicineInfo);
+            lstMedicines.Items.Remove(medicineInfo);
+            UpdateMedicineCount();
+            ShowSuccessMessage($"🗑️ {medicineInfo.Name} removed successfully!");
+            Console.WriteLine($"btnRemoveMedicine_Click - Medicine removed: {medicineInfo}, Total medicines: {selectedMedicines.Count}");
+        }
+    }
+    else
+    {
+        ShowWarningMessage("⚠️ Please select a medicine to remove.");
+    }
+}
+
+private void UpdateMedicineCount()
+{
+    if (lblMedicineCount != null && selectedMedicines != null)
+    {
+        lblMedicineCount.Text = selectedMedicines.Count == 0 ? 
+            "No medicines added yet" : 
+            $"{selectedMedicines.Count} medicine{(selectedMedicines.Count == 1 ? "" : "s")} prescribed";
+        
+        lblMedicineCount.ForeColor = selectedMedicines.Count == 0 ? 
+            Color.FromArgb(220, 53, 69) : 
+            Color.FromArgb(40, 167, 69);
+    }
+}
+
+private void ShowSuccessMessage(string message)
+{
+    // Create a temporary label for success message
+    Label successLabel = new Label();
+    successLabel.Text = message;
+    successLabel.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+    successLabel.ForeColor = Color.FromArgb(40, 167, 69);
+    successLabel.BackColor = Color.FromArgb(220, 255, 220);
+    successLabel.AutoSize = true;
+    successLabel.Padding = new Padding(10, 5, 10, 5);
+    successLabel.Location = new Point(this.Width / 2 - 100, 50);
+    successLabel.Anchor = AnchorStyles.Top;
+    
+    this.Controls.Add(successLabel);
+    successLabel.BringToFront();
+    
+    // Auto-remove after 3 seconds
+    Timer removeTimer = new Timer();
+    removeTimer.Interval = 3000;
+    removeTimer.Tick += (s, e) =>
+    {
+        this.Controls.Remove(successLabel);
+        successLabel.Dispose();
+        removeTimer.Stop();
+        removeTimer.Dispose();
+    };
+    removeTimer.Start();
+}
+
+private void ShowWarningMessage(string message)
+{
+    // Create a temporary label for warning message
+    Label warningLabel = new Label();
+    warningLabel.Text = message;
+    warningLabel.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+    warningLabel.ForeColor = Color.FromArgb(220, 53, 69);
+    warningLabel.BackColor = Color.FromArgb(255, 220, 220);
+    warningLabel.AutoSize = true;
+    warningLabel.Padding = new Padding(10, 5, 10, 5);
+    warningLabel.Location = new Point(this.Width / 2 - 100, 50);
+    warningLabel.Anchor = AnchorStyles.Top;
+    
+    this.Controls.Add(warningLabel);
+    warningLabel.BringToFront();
+    
+    // Auto-remove after 4 seconds
+    Timer removeTimer = new Timer();
+    removeTimer.Interval = 4000;
+    removeTimer.Tick += (s, e) =>
+    {
+        this.Controls.Remove(warningLabel);
+        warningLabel.Dispose();
+        removeTimer.Stop();
+        removeTimer.Dispose();
+    };
+    removeTimer.Start();
+}
+
+// Enhanced btnFinish_Click with progress indication
+private void btnFinish_Click(object sender, EventArgs e)
+{
+    string notes = txtNotes != null ? txtNotes.Text.Trim() : string.Empty;
+    
+    // Remove placeholder text
+    if (notes == "Enter any additional notes or special instructions here...")
+    {
+        notes = string.Empty;
+    }
+
+    if (selectedMedicines.Count == 0)
+    {
+        ShowWarningMessage("⚠️ Please add at least one medicine to the prescription.");
+        return;
+    }
+
+    // Show progress indication
+    ShowProgressDialog("Saving prescription...");
+
+    using (MySqlConnection conn = new MySqlConnection(connectionString))
+    {
+        try
+        {
+            conn.Open();
+            string query = "UPDATE schedule SET current_status = 'Done', notes = @notes WHERE id = @scheduleId";
+            using (MySqlCommand cmd = new MySqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@notes", notes);
+                cmd.Parameters.AddWithValue("@scheduleId", scheduleId);
+                cmd.ExecuteNonQuery();
+            }
+        }
+        catch (Exception ex)
+        {
+            HideProgressDialog();
+            MessageBox.Show($"❌ Database Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+        }
+    }
+
+    try
+    {
+        string pdfPath = GeneratePDF(false);
+        
+        if (SavePrescriptionToDatabase(pdfPath))
+        {
+            HideProgressDialog();
+            ShowCompletionDialog(pdfPath);
+        }
+        else
+        {
+            HideProgressDialog();
+            MessageBox.Show($"⚠️ Checkup completed. PDF saved locally at {pdfPath}, but failed to save to database.", 
+                "Partial Success", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+        
+        this.Close();
+    }
+    catch (Exception ex)
+    {
+        HideProgressDialog();
+        MessageBox.Show($"❌ Error generating PDF: {ex.Message}\n\nStack Trace: {ex.StackTrace}", 
+            "PDF Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+    }
+}
+
+private Form progressForm;
+private void ShowProgressDialog(string message)
+{
+    progressForm = new Form();
+    progressForm.Size = new Size(400, 150);
+    progressForm.StartPosition = FormStartPosition.CenterParent;
+    progressForm.FormBorderStyle = FormBorderStyle.None;
+    progressForm.BackColor = Color.White;
+    progressForm.ShowInTaskbar = false;
+    
+    Label lblProgress = new Label();
+    lblProgress.Text = message;
+    lblProgress.Font = new Font("Segoe UI", 12F);
+    lblProgress.ForeColor = Color.FromArgb(33, 37, 41);
+    lblProgress.AutoSize = true;
+    lblProgress.Location = new Point(50, 50);
+    progressForm.Controls.Add(lblProgress);
+    
+    ProgressBar progressBar = new ProgressBar();
+    progressBar.Style = ProgressBarStyle.Marquee;
+    progressBar.MarqueeAnimationSpeed = 30;
+    progressBar.Size = new Size(300, 20);
+    progressBar.Location = new Point(50, 80);
+    progressForm.Controls.Add(progressBar);
+    
+    progressForm.Show(this);
+    progressForm.BringToFront();
+    Application.DoEvents();
+}
+
+private void HideProgressDialog()
+{
+    if (progressForm != null)
+    {
+        progressForm.Close();
+        progressForm.Dispose();
+        progressForm = null;
+    }
+}
+
+private void ShowCompletionDialog(string pdfPath)
+{
+    Form completionForm = new Form();
+    completionForm.Size = new Size(500, 300);
+    completionForm.StartPosition = FormStartPosition.CenterParent;
+    completionForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+    completionForm.MaximizeBox = false;
+    completionForm.MinimizeBox = false;
+    completionForm.Text = "Prescription Completed";
+    completionForm.BackColor = Color.White;
+    
+    Label lblSuccess = new Label();
+    lblSuccess.Text = "✅ Prescription Generated Successfully!";
+    lblSuccess.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+    lblSuccess.ForeColor = Color.FromArgb(40, 167, 69);
+    lblSuccess.AutoSize = true;
+    lblSuccess.Location = new Point(50, 30);
+    completionForm.Controls.Add(lblSuccess);
+    
+    Label lblDetails = new Label();
+    lblDetails.Text = $"📄 PDF saved to: {pdfPath}";
+    lblDetails.Font = new Font("Segoe UI", 10F);
+    lblDetails.ForeColor = Color.FromArgb(108, 117, 125);
+    lblDetails.AutoSize = true;
+    lblDetails.Location = new Point(50, 80);
+    lblDetails.MaximumSize = new Size(400, 0);
+    completionForm.Controls.Add(lblDetails);
+    
+    Button btnOpenPDF = new Button();
+    btnOpenPDF.Text = "📂 Open PDF";
+    btnOpenPDF.Size = new Size(120, 40);
+    btnOpenPDF.Location = new Point(50, 150);
+    btnOpenPDF.BackColor = Color.FromArgb(0, 123, 255);
+    btnOpenPDF.ForeColor = Color.White;
+    btnOpenPDF.FlatStyle = FlatStyle.Flat;
+    btnOpenPDF.FlatAppearance.BorderSize = 0;
+    btnOpenPDF.Click += (s, e) =>
+    {
+        try
+        {
+            Process.Start(new ProcessStartInfo(pdfPath) { UseShellExecute = true });
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Could not open PDF: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+    };
+    completionForm.Controls.Add(btnOpenPDF);
+    
+    Button btnClose = new Button();
+    btnClose.Text = "✅ Close";
+    btnClose.Size = new Size(120, 40);
+    btnClose.Location = new Point(190, 150);
+    btnClose.BackColor = Color.FromArgb(40, 167, 69);
+    btnClose.ForeColor = Color.White;
+    btnClose.FlatStyle = FlatStyle.Flat;
+    btnClose.FlatAppearance.BorderSize = 0;
+    btnClose.Click += (s, e) => completionForm.Close();
+    completionForm.Controls.Add(btnClose);
+    
+    completionForm.ShowDialog(this);
+}
+
+// Enhanced responsive design
+private void CheckupForm_Resize(object sender, EventArgs e)
+{
+    // Update medicine count when form is resized
+    UpdateMedicineCount();
+    
+    // Ensure minimum sizes for readability
+    if (this.Width < 1000)
+    {
+        // Adjust layout for smaller screens
+        AdjustLayoutForSmallScreen();
+    }
+    else
+    {
+        // Restore normal layout
+        RestoreNormalLayout();
+    }
+}
+
+private void AdjustLayoutForSmallScreen()
+{
+    // Stack info cards vertically on small screens
+    if (pnlInfoCards != null)
+    {
+        pnlInfoCards.Height = 360; // Triple height for stacked cards
+        
+        if (pnlDoctorCard != null)
+        {
+            pnlDoctorCard.Dock = DockStyle.Top;
+            pnlDoctorCard.Height = 100;
+        }
+        
+        if (pnlPatientCard != null)
+        {
+            pnlPatientCard.Dock = DockStyle.Top;
+            pnlPatientCard.Height = 100;
+        }
+        
+        if (pnlDateCard != null)
+        {
+            pnlDateCard.Dock = DockStyle.Top;
+            pnlDateCard.Height = 100;
+        }
+    }
+}
+
+private void RestoreNormalLayout()
+{
+    // Restore horizontal layout for info cards
+    if (pnlInfoCards != null)
+    {
+        pnlInfoCards.Height = 120;
+        
+        if (pnlDoctorCard != null)
+        {
+            pnlDoctorCard.Dock = DockStyle.Left;
+            pnlDoctorCard.Width = 380;
+        }
+        
+        if (pnlPatientCard != null)
+        {
+            pnlPatientCard.Dock = DockStyle.Left;
+            pnlPatientCard.Width = 380;
+        }
+        
+        if (pnlDateCard != null)
+        {
+            pnlDateCard.Dock = DockStyle.Left;
+            pnlDateCard.Width = 380;
+        }
+    }
+}
+
+// Enhanced keyboard shortcuts
+protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+{
+    switch (keyData)
+    {
+        case Keys.Control | Keys.A:
+            // Focus medicine input
+            txtMedicine.Focus();
+            return true;
+            
+        case Keys.Control | Keys.Enter:
+            // Add medicine
+            btnAddMedicine_Click(null, null);
+            return true;
+            
+        case Keys.Delete:
+            // Remove selected medicine
+            if (lstMedicines.Focused && lstMedicines.SelectedItem != null)
+            {
+                btnRemoveMedicine_Click(null, null);
+                return true;
+            }
+            break;
+            
+        case Keys.Control | Keys.P:
+            // Preview PDF
+            btnPreview_Click(null, null);
+            return true;
+            
+        case Keys.Control | Keys.S:
+            // Save prescription
+            btnFinish_Click(null, null);
+            return true;
+            
+        case Keys.F11:
+            // Toggle fullscreen
+            btnToggleFullScreen_Click(null, null);
+            return true;
+    }
+    
+    return base.ProcessCmdKey(ref msg, keyData);
+}
+
+// Method to validate form data with enhanced feedback
+private bool ValidateFormData()
+{
+    List<string> validationErrors = new List<string>();
+    
+    if (selectedMedicines.Count == 0)
+    {
+        validationErrors.Add("• At least one medicine must be prescribed");
+    }
+    
+    if (string.IsNullOrWhiteSpace(doctorName) || doctorName == "(Unknown Doctor)")
+    {
+        validationErrors.Add("• Doctor information is missing");
+    }
+    
+    if (string.IsNullOrWhiteSpace(patientName) || patientName == "(Unknown Patient)")
+    {
+        validationErrors.Add("• Patient information is missing");
+    }
+    
+    if (validationErrors.Count > 0)
+    {
+        string errorMessage = "Please fix the following issues:\n\n" + string.Join("\n", validationErrors);
+        MessageBox.Show(errorMessage, "⚠️ Validation Errors", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        return false;
+    }
+    
+    return true;
+}
+
+// Extension method for button scaling animation
+public static class ControlExtensions
+{
+    public static void Transform(this Control control, float scale)
+    {
+        if (scale == 1.0f)
+        {
+            control.Size = control.Tag as Size? ?? control.Size;
+        }
+        else
+        {
+            if (control.Tag == null)
+            {
+                control.Tag = control.Size;
+            }
+            
+            Size originalSize = (Size)control.Tag;
+            control.Size = new Size(
+                (int)(originalSize.Width * scale),
+                (int)(originalSize.Height * scale)
+            );
+        }
+    }
+}

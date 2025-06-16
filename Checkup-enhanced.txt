@@ -1,0 +1,808 @@
+namespace Doctor
+{
+    partial class CheckupForm
+    {
+        private System.Windows.Forms.Label lblDoctorName;
+        private System.Windows.Forms.Label lblPatientName;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Label lblMedicine;
+        private System.Windows.Forms.TextBox txtMedicine;
+        private System.Windows.Forms.Label lblDosage;
+        private System.Windows.Forms.TextBox txtDosage;
+        private System.Windows.Forms.Label lblUnit;
+        private System.Windows.Forms.TextBox txtUnit;
+        private System.Windows.Forms.Button btnAddMedicine;
+        private System.Windows.Forms.ListBox lstMedicines;
+        private System.Windows.Forms.Button btnRemoveMedicine;
+        private System.Windows.Forms.Label lblNotes;
+        private System.Windows.Forms.TextBox txtNotes;
+        private System.Windows.Forms.Button btnFinish;
+        private System.Windows.Forms.Button btnPreview;
+        private System.Windows.Forms.Button btnToggleFullScreen;
+        private System.Windows.Forms.Panel pnlHeader;
+        private System.Windows.Forms.Panel pnlMedicines;
+        private System.Windows.Forms.GroupBox grpMedicines;
+        private System.Windows.Forms.Panel pnlNotes;
+        private System.Windows.Forms.Panel pnlFooter;
+        private System.Windows.Forms.ToolTip toolTip;
+        
+        // New modern UI elements
+        private System.Windows.Forms.Panel pnlMainContainer;
+        private System.Windows.Forms.Panel pnlSidebar;
+        private System.Windows.Forms.Panel pnlContent;
+        private System.Windows.Forms.Panel pnlTopBar;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.PictureBox picDoctorIcon;
+        private System.Windows.Forms.PictureBox picPatientIcon;
+        private System.Windows.Forms.PictureBox picDateIcon;
+        private System.Windows.Forms.PictureBox picMedicineIcon;
+        private System.Windows.Forms.Panel pnlMedicineCard;
+        private System.Windows.Forms.Panel pnlNotesCard;
+        private System.Windows.Forms.Panel pnlInfoCards;
+        private System.Windows.Forms.Panel pnlDoctorCard;
+        private System.Windows.Forms.Panel pnlPatientCard;
+        private System.Windows.Forms.Panel pnlDateCard;
+        private System.Windows.Forms.Label lblMedicineCount;
+        private System.Windows.Forms.Panel pnlActionButtons;
+
+        private FormWindowState lastWindowState;
+        private Size lastWindowSize;
+        private Point lastWindowLocation;
+
+        private void InitializeComponent()
+        {
+            this.toolTip = new System.Windows.Forms.ToolTip();
+            this.pnlMainContainer = new System.Windows.Forms.Panel();
+            this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.pnlContent = new System.Windows.Forms.Panel();
+            this.pnlTopBar = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btnToggleFullScreen = new System.Windows.Forms.Button();
+            this.pnlInfoCards = new System.Windows.Forms.Panel();
+            this.pnlDoctorCard = new System.Windows.Forms.Panel();
+            this.picDoctorIcon = new System.Windows.Forms.PictureBox();
+            this.lblDoctorName = new System.Windows.Forms.Label();
+            this.pnlPatientCard = new System.Windows.Forms.Panel();
+            this.picPatientIcon = new System.Windows.Forms.PictureBox();
+            this.lblPatientName = new System.Windows.Forms.Label();
+            this.pnlDateCard = new System.Windows.Forms.Panel();
+            this.picDateIcon = new System.Windows.Forms.PictureBox();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.pnlMedicineCard = new System.Windows.Forms.Panel();
+            this.grpMedicines = new System.Windows.Forms.GroupBox();
+            this.picMedicineIcon = new System.Windows.Forms.PictureBox();
+            this.lblMedicineCount = new System.Windows.Forms.Label();
+            this.lblMedicine = new System.Windows.Forms.Label();
+            this.txtMedicine = new System.Windows.Forms.TextBox();
+            this.lblDosage = new System.Windows.Forms.Label();
+            this.txtDosage = new System.Windows.Forms.TextBox();
+            this.lblUnit = new System.Windows.Forms.Label();
+            this.txtUnit = new System.Windows.Forms.TextBox();
+            this.btnAddMedicine = new System.Windows.Forms.Button();
+            this.lstMedicines = new System.Windows.Forms.ListBox();
+            this.btnRemoveMedicine = new System.Windows.Forms.Button();
+            this.pnlNotesCard = new System.Windows.Forms.Panel();
+            this.lblNotes = new System.Windows.Forms.Label();
+            this.txtNotes = new System.Windows.Forms.TextBox();
+            this.pnlActionButtons = new System.Windows.Forms.Panel();
+            this.btnPreview = new System.Windows.Forms.Button();
+            this.btnFinish = new System.Windows.Forms.Button();
+
+            this.pnlMainContainer.SuspendLayout();
+            this.pnlContent.SuspendLayout();
+            this.pnlTopBar.SuspendLayout();
+            this.pnlInfoCards.SuspendLayout();
+            this.pnlDoctorCard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDoctorIcon)).BeginInit();
+            this.pnlPatientCard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPatientIcon)).BeginInit();
+            this.pnlDateCard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDateIcon)).BeginInit();
+            this.pnlMedicineCard.SuspendLayout();
+            this.grpMedicines.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picMedicineIcon)).BeginInit();
+            this.pnlNotesCard.SuspendLayout();
+            this.pnlActionButtons.SuspendLayout();
+            this.SuspendLayout();
+
+            // Main Container
+            this.pnlMainContainer.BackColor = System.Drawing.Color.FromArgb(248, 249, 250);
+            this.pnlMainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMainContainer.Location = new System.Drawing.Point(0, 0);
+            this.pnlMainContainer.Name = "pnlMainContainer";
+            this.pnlMainContainer.Size = new System.Drawing.Size(1200, 800);
+            this.pnlMainContainer.Controls.Add(this.pnlContent);
+
+            // Content Panel
+            this.pnlContent.BackColor = System.Drawing.Color.Transparent;
+            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContent.Location = new System.Drawing.Point(0, 0);
+            this.pnlContent.Name = "pnlContent";
+            this.pnlContent.Padding = new System.Windows.Forms.Padding(20);
+            this.pnlContent.Size = new System.Drawing.Size(1200, 800);
+            this.pnlContent.Controls.Add(this.pnlActionButtons);
+            this.pnlContent.Controls.Add(this.pnlNotesCard);
+            this.pnlContent.Controls.Add(this.pnlMedicineCard);
+            this.pnlContent.Controls.Add(this.pnlInfoCards);
+            this.pnlContent.Controls.Add(this.pnlTopBar);
+
+            // Top Bar
+            this.pnlTopBar.BackColor = System.Drawing.Color.White;
+            this.pnlTopBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTopBar.Location = new System.Drawing.Point(20, 20);
+            this.pnlTopBar.Name = "pnlTopBar";
+            this.pnlTopBar.Size = new System.Drawing.Size(1160, 80);
+            this.pnlTopBar.Padding = new System.Windows.Forms.Padding(30, 15, 30, 15);
+            this.pnlTopBar.Controls.Add(this.btnToggleFullScreen);
+            this.pnlTopBar.Controls.Add(this.lblTitle);
+
+            // Add shadow effect to top bar
+            this.pnlTopBar.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawCardShadow);
+
+            // Title Label
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+            this.lblTitle.Location = new System.Drawing.Point(30, 20);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(285, 45);
+            this.lblTitle.Text = "Patient Checkup";
+
+            // Toggle Full Screen Button
+            this.btnToggleFullScreen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnToggleFullScreen.BackColor = System.Drawing.Color.FromArgb(108, 117, 125);
+            this.btnToggleFullScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToggleFullScreen.FlatAppearance.BorderSize = 0;
+            this.btnToggleFullScreen.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Medium);
+            this.btnToggleFullScreen.ForeColor = System.Drawing.Color.White;
+            this.btnToggleFullScreen.Location = new System.Drawing.Point(1010, 22);
+            this.btnToggleFullScreen.Name = "btnToggleFullScreen";
+            this.btnToggleFullScreen.Size = new System.Drawing.Size(120, 40);
+            this.btnToggleFullScreen.Text = "⛶ Full Screen";
+            this.btnToggleFullScreen.UseVisualStyleBackColor = false;
+            this.btnToggleFullScreen.Click += new System.EventHandler(this.btnToggleFullScreen_Click);
+            this.btnToggleFullScreen.MouseEnter += new System.EventHandler(this.btnToggleFullScreen_MouseEnter);
+            this.btnToggleFullScreen.MouseLeave += new System.EventHandler(this.btnToggleFullScreen_MouseLeave);
+
+            // Info Cards Panel
+            this.pnlInfoCards.BackColor = System.Drawing.Color.Transparent;
+            this.pnlInfoCards.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlInfoCards.Location = new System.Drawing.Point(20, 100);
+            this.pnlInfoCards.Name = "pnlInfoCards";
+            this.pnlInfoCards.Size = new System.Drawing.Size(1160, 120);
+            this.pnlInfoCards.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.pnlInfoCards.Controls.Add(this.pnlDateCard);
+            this.pnlInfoCards.Controls.Add(this.pnlPatientCard);
+            this.pnlInfoCards.Controls.Add(this.pnlDoctorCard);
+
+            // Doctor Card
+            this.pnlDoctorCard.BackColor = System.Drawing.Color.White;
+            this.pnlDoctorCard.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlDoctorCard.Location = new System.Drawing.Point(0, 20);
+            this.pnlDoctorCard.Name = "pnlDoctorCard";
+            this.pnlDoctorCard.Size = new System.Drawing.Size(380, 100);
+            this.pnlDoctorCard.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.pnlDoctorCard.Padding = new System.Windows.Forms.Padding(20);
+            this.pnlDoctorCard.Controls.Add(this.lblDoctorName);
+            this.pnlDoctorCard.Controls.Add(this.picDoctorIcon);
+            this.pnlDoctorCard.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawCardShadow);
+
+            // Doctor Icon
+            this.picDoctorIcon.BackColor = System.Drawing.Color.FromArgb(40, 167, 69);
+            this.picDoctorIcon.Location = new System.Drawing.Point(20, 20);
+            this.picDoctorIcon.Name = "picDoctorIcon";
+            this.picDoctorIcon.Size = new System.Drawing.Size(60, 60);
+            this.picDoctorIcon.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawDoctorIcon);
+
+            // Doctor Name Label
+            this.lblDoctorName.AutoSize = true;
+            this.lblDoctorName.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblDoctorName.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+            this.lblDoctorName.Location = new System.Drawing.Point(95, 25);
+            this.lblDoctorName.Name = "lblDoctorName";
+            this.lblDoctorName.Size = new System.Drawing.Size(180, 25);
+            this.lblDoctorName.Text = "Doctor: [Name]";
+            
+            var lblDoctorSubtitle = new System.Windows.Forms.Label();
+            lblDoctorSubtitle.AutoSize = true;
+            lblDoctorSubtitle.Font = new System.Drawing.Font("Segoe UI", 10F);
+            lblDoctorSubtitle.ForeColor = System.Drawing.Color.FromArgb(108, 117, 125);
+            lblDoctorSubtitle.Location = new System.Drawing.Point(95, 50);
+            lblDoctorSubtitle.Name = "lblDoctorSubtitle";
+            lblDoctorSubtitle.Size = new System.Drawing.Size(120, 19);
+            lblDoctorSubtitle.Text = "Attending Physician";
+            this.pnlDoctorCard.Controls.Add(lblDoctorSubtitle);
+
+            // Patient Card
+            this.pnlPatientCard.BackColor = System.Drawing.Color.White;
+            this.pnlPatientCard.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlPatientCard.Location = new System.Drawing.Point(380, 20);
+            this.pnlPatientCard.Name = "pnlPatientCard";
+            this.pnlPatientCard.Size = new System.Drawing.Size(380, 100);
+            this.pnlPatientCard.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.pnlPatientCard.Padding = new System.Windows.Forms.Padding(20);
+            this.pnlPatientCard.Controls.Add(this.lblPatientName);
+            this.pnlPatientCard.Controls.Add(this.picPatientIcon);
+            this.pnlPatientCard.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawCardShadow);
+
+            // Patient Icon
+            this.picPatientIcon.BackColor = System.Drawing.Color.FromArgb(0, 123, 255);
+            this.picPatientIcon.Location = new System.Drawing.Point(20, 20);
+            this.picPatientIcon.Name = "picPatientIcon";
+            this.picPatientIcon.Size = new System.Drawing.Size(60, 60);
+            this.picPatientIcon.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawPatientIcon);
+
+            // Patient Name Label
+            this.lblPatientName.AutoSize = true;
+            this.lblPatientName.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblPatientName.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+            this.lblPatientName.Location = new System.Drawing.Point(95, 25);
+            this.lblPatientName.Name = "lblPatientName";
+            this.lblPatientName.Size = new System.Drawing.Size(180, 25);
+            this.lblPatientName.Text = "Patient: [Name]";
+            
+            var lblPatientSubtitle = new System.Windows.Forms.Label();
+            lblPatientSubtitle.AutoSize = true;
+            lblPatientSubtitle.Font = new System.Drawing.Font("Segoe UI", 10F);
+            lblPatientSubtitle.ForeColor = System.Drawing.Color.FromArgb(108, 117, 125);
+            lblPatientSubtitle.Location = new System.Drawing.Point(95, 50);
+            lblPatientSubtitle.Name = "lblPatientSubtitle";
+            lblPatientSubtitle.Size = new System.Drawing.Size(85, 19);
+            lblPatientSubtitle.Text = "Patient ID: --";
+            this.pnlPatientCard.Controls.Add(lblPatientSubtitle);
+
+            // Date Card
+            this.pnlDateCard.BackColor = System.Drawing.Color.White;
+            this.pnlDateCard.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlDateCard.Location = new System.Drawing.Point(760, 20);
+            this.pnlDateCard.Name = "pnlDateCard";
+            this.pnlDateCard.Size = new System.Drawing.Size(380, 100);
+            this.pnlDateCard.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.pnlDateCard.Padding = new System.Windows.Forms.Padding(20);
+            this.pnlDateCard.Controls.Add(this.lblDate);
+            this.pnlDateCard.Controls.Add(this.picDateIcon);
+            this.pnlDateCard.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawCardShadow);
+
+            // Date Icon
+            this.picDateIcon.BackColor = System.Drawing.Color.FromArgb(255, 193, 7);
+            this.picDateIcon.Location = new System.Drawing.Point(20, 20);
+            this.picDateIcon.Name = "picDateIcon";
+            this.picDateIcon.Size = new System.Drawing.Size(60, 60);
+            this.picDateIcon.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawDateIcon);
+
+            // Date Label
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblDate.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+            this.lblDate.Location = new System.Drawing.Point(95, 25);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(140, 25);
+            this.lblDate.Text = "Date: [Date]";
+            
+            var lblDateSubtitle = new System.Windows.Forms.Label();
+            lblDateSubtitle.AutoSize = true;
+            lblDateSubtitle.Font = new System.Drawing.Font("Segoe UI", 10F);
+            lblDateSubtitle.ForeColor = System.Drawing.Color.FromArgb(108, 117, 125);
+            lblDateSubtitle.Location = new System.Drawing.Point(95, 50);
+            lblDateSubtitle.Name = "lblDateSubtitle";
+            lblDateSubtitle.Size = new System.Drawing.Size(110, 19);
+            lblDateSubtitle.Text = "Appointment Date";
+            this.pnlDateCard.Controls.Add(lblDateSubtitle);
+
+            // Medicine Card
+            this.pnlMedicineCard.BackColor = System.Drawing.Color.White;
+            this.pnlMedicineCard.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlMedicineCard.Location = new System.Drawing.Point(20, 220);
+            this.pnlMedicineCard.Name = "pnlMedicineCard";
+            this.pnlMedicineCard.Size = new System.Drawing.Size(1160, 340);
+            this.pnlMedicineCard.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.pnlMedicineCard.Padding = new System.Windows.Forms.Padding(30);
+            this.pnlMedicineCard.Controls.Add(this.grpMedicines);
+            this.pnlMedicineCard.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawCardShadow);
+
+            // Medicines Group Box
+            this.grpMedicines.BackColor = System.Drawing.Color.Transparent;
+            this.grpMedicines.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpMedicines.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.grpMedicines.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.grpMedicines.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+            this.grpMedicines.Location = new System.Drawing.Point(30, 30);
+            this.grpMedicines.Name = "grpMedicines";
+            this.grpMedicines.Size = new System.Drawing.Size(1100, 280);
+            this.grpMedicines.Text = "💊 Prescribed Medicines";
+            this.grpMedicines.Padding = new System.Windows.Forms.Padding(0, 35, 0, 0);
+            this.grpMedicines.Controls.Add(this.lblMedicineCount);
+            this.grpMedicines.Controls.Add(this.btnRemoveMedicine);
+            this.grpMedicines.Controls.Add(this.lstMedicines);
+            this.grpMedicines.Controls.Add(this.btnAddMedicine);
+            this.grpMedicines.Controls.Add(this.txtUnit);
+            this.grpMedicines.Controls.Add(this.lblUnit);
+            this.grpMedicines.Controls.Add(this.txtDosage);
+            this.grpMedicines.Controls.Add(this.lblDosage);
+            this.grpMedicines.Controls.Add(this.txtMedicine);
+            this.grpMedicines.Controls.Add(this.lblMedicine);
+
+            // Medicine Count Label
+            this.lblMedicineCount.AutoSize = true;
+            this.lblMedicineCount.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblMedicineCount.ForeColor = System.Drawing.Color.FromArgb(108, 117, 125);
+            this.lblMedicineCount.Location = new System.Drawing.Point(500, 0);
+            this.lblMedicineCount.Name = "lblMedicineCount";
+            this.lblMedicineCount.Size = new System.Drawing.Size(120, 20);
+            this.lblMedicineCount.Text = "0 medicines added";
+
+            // Medicine Name Label and TextBox
+            this.lblMedicine.AutoSize = true;
+            this.lblMedicine.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Medium);
+            this.lblMedicine.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+            this.lblMedicine.Location = new System.Drawing.Point(20, 50);
+            this.lblMedicine.Name = "lblMedicine";
+            this.lblMedicine.Size = new System.Drawing.Size(117, 21);
+            this.lblMedicine.Text = "Medicine Name";
+
+            this.txtMedicine.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMedicine.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtMedicine.Location = new System.Drawing.Point(20, 75);
+            this.txtMedicine.Name = "txtMedicine";
+            this.txtMedicine.Size = new System.Drawing.Size(350, 22);
+            this.txtMedicine.BackColor = System.Drawing.Color.FromArgb(248, 249, 250);
+            this.txtMedicine.Padding = new System.Windows.Forms.Padding(15, 12, 15, 12);
+            this.txtMedicine.Height = 45;
+            this.txtMedicine.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawTextBoxBorder);
+
+            // Dosage Label and TextBox
+            this.lblDosage.AutoSize = true;
+            this.lblDosage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Medium);
+            this.lblDosage.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+            this.lblDosage.Location = new System.Drawing.Point(390, 50);
+            this.lblDosage.Name = "lblDosage";
+            this.lblDosage.Size = new System.Drawing.Size(61, 21);
+            this.lblDosage.Text = "Dosage";
+
+            this.txtDosage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDosage.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtDosage.Location = new System.Drawing.Point(390, 75);
+            this.txtDosage.Name = "txtDosage";
+            this.txtDosage.Size = new System.Drawing.Size(150, 22);
+            this.txtDosage.BackColor = System.Drawing.Color.FromArgb(248, 249, 250);
+            this.txtDosage.Height = 45;
+            this.txtDosage.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawTextBoxBorder);
+
+            // Unit Label and TextBox
+            this.lblUnit.AutoSize = true;
+            this.lblUnit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Medium);
+            this.lblUnit.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+            this.lblUnit.Location = new System.Drawing.Point(560, 50);
+            this.lblUnit.Name = "lblUnit";
+            this.lblUnit.Size = new System.Drawing.Size(37, 21);
+            this.lblUnit.Text = "Unit";
+
+            this.txtUnit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUnit.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtUnit.Location = new System.Drawing.Point(560, 75);
+            this.txtUnit.Name = "txtUnit";
+            this.txtUnit.Size = new System.Drawing.Size(150, 22);
+            this.txtUnit.BackColor = System.Drawing.Color.FromArgb(248, 249, 250);
+            this.txtUnit.Height = 45;
+            this.txtUnit.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawTextBoxBorder);
+
+            // Add Medicine Button
+            this.btnAddMedicine.BackColor = System.Drawing.Color.FromArgb(40, 167, 69);
+            this.btnAddMedicine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddMedicine.FlatAppearance.BorderSize = 0;
+            this.btnAddMedicine.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAddMedicine.ForeColor = System.Drawing.Color.White;
+            this.btnAddMedicine.Location = new System.Drawing.Point(730, 75);
+            this.btnAddMedicine.Name = "btnAddMedicine";
+            this.btnAddMedicine.Size = new System.Drawing.Size(120, 45);
+            this.btnAddMedicine.Text = "➕ Add";
+            this.btnAddMedicine.UseVisualStyleBackColor = false;
+            this.btnAddMedicine.Click += new System.EventHandler(this.btnAddMedicine_Click);
+            this.btnAddMedicine.MouseEnter += new System.EventHandler(this.btnAddMedicine_MouseEnter);
+            this.btnAddMedicine.MouseLeave += new System.EventHandler(this.btnAddMedicine_MouseLeave);
+
+            // Medicines ListBox
+            this.lstMedicines.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstMedicines.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lstMedicines.FormattingEnabled = true;
+            this.lstMedicines.ItemHeight = 20;
+            this.lstMedicines.Location = new System.Drawing.Point(20, 140);
+            this.lstMedicines.Name = "lstMedicines";
+            this.lstMedicines.Size = new System.Drawing.Size(830, 120);
+            this.lstMedicines.BackColor = System.Drawing.Color.FromArgb(248, 249, 250);
+            this.lstMedicines.SelectionMode = System.Windows.Forms.SelectionMode.One;
+            this.lstMedicines.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.lstMedicines.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lstMedicines_DrawItem);
+
+            // Remove Medicine Button
+            this.btnRemoveMedicine.BackColor = System.Drawing.Color.FromArgb(220, 53, 69);
+            this.btnRemoveMedicine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveMedicine.FlatAppearance.BorderSize = 0;
+            this.btnRemoveMedicine.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnRemoveMedicine.ForeColor = System.Drawing.Color.White;
+            this.btnRemoveMedicine.Location = new System.Drawing.Point(870, 140);
+            this.btnRemoveMedicine.Name = "btnRemoveMedicine";
+            this.btnRemoveMedicine.Size = new System.Drawing.Size(120, 45);
+            this.btnRemoveMedicine.Text = "🗑️ Remove";
+            this.btnRemoveMedicine.UseVisualStyleBackColor = false;
+            this.btnRemoveMedicine.Click += new System.EventHandler(this.btnRemoveMedicine_Click);
+            this.btnRemoveMedicine.MouseEnter += new System.EventHandler(this.btnRemoveMedicine_MouseEnter);
+            this.btnRemoveMedicine.MouseLeave += new System.EventHandler(this.btnRemoveMedicine_MouseLeave);
+
+            // Notes Card
+            this.pnlNotesCard.BackColor = System.Drawing.Color.White;
+            this.pnlNotesCard.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlNotesCard.Location = new System.Drawing.Point(20, 560);
+            this.pnlNotesCard.Name = "pnlNotesCard";
+            this.pnlNotesCard.Size = new System.Drawing.Size(1160, 160);
+            this.pnlNotesCard.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.pnlNotesCard.Padding = new System.Windows.Forms.Padding(30);
+            this.pnlNotesCard.Controls.Add(this.txtNotes);
+            this.pnlNotesCard.Controls.Add(this.lblNotes);
+            this.pnlNotesCard.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawCardShadow);
+
+            // Notes Label
+            this.lblNotes.AutoSize = true;
+            this.lblNotes.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.lblNotes.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+            this.lblNotes.Location = new System.Drawing.Point(30, 20);
+            this.lblNotes.Name = "lblNotes";
+            this.lblNotes.Size = new System.Drawing.Size(163, 30);
+            this.lblNotes.Text = "📝 Additional Notes";
+
+            // Notes TextBox
+            this.txtNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNotes.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtNotes.Location = new System.Drawing.Point(30, 60);
+            this.txtNotes.Multiline = true;
+            this.txtNotes.Name = "txtNotes";
+            this.txtNotes.Size = new System.Drawing.Size(1100, 70);
+            this.txtNotes.BackColor = System.Drawing.Color.FromArgb(248, 249, 250);
+            this.txtNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtNotes.Text = "Enter any additional notes or special instructions here...";
+            this.txtNotes.ForeColor = System.Drawing.Color.FromArgb(108, 117, 125);
+            this.txtNotes.Enter += new System.EventHandler(this.txtNotes_Enter);
+            this.txtNotes.Leave += new System.EventHandler(this.txtNotes_Leave);
+            this.txtNotes.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawTextBoxBorder);
+
+            // Action Buttons Panel
+            this.pnlActionButtons.BackColor = System.Drawing.Color.Transparent;
+            this.pnlActionButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlActionButtons.Location = new System.Drawing.Point(20, 720);
+            this.pnlActionButtons.Name = "pnlActionButtons";
+            this.pnlActionButtons.Size = new System.Drawing.Size(1160, 80);
+            this.pnlActionButtons.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.pnlActionButtons.Controls.Add(this.btnFinish);
+            this.pnlActionButtons.Controls.Add(this.btnPreview);
+
+            // Preview Button
+            this.btnPreview.BackColor = System.Drawing.Color.FromArgb(255, 193, 7);
+            this.btnPreview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPreview.FlatAppearance.BorderSize = 0;
+            this.btnPreview.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.btnPreview.ForeColor = System.Drawing.Color.White;
+            this.btnPreview.Location = new System.Drawing.Point(0, 20);
+            this.btnPreview.Name = "btnPreview";
+            this.btnPreview.Size = new System.Drawing.Size(570, 60);
+            this.btnPreview.Text = "👁️ Preview PDF";
+            this.btnPreview.UseVisualStyleBackColor = false;
+            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
+            this.btnPreview.MouseEnter += new System.EventHandler(this.btnPreview_MouseEnter);
+            this.btnPreview.MouseLeave += new System.EventHandler(this.btnPreview_MouseLeave);
+
+            // Finish Button
+            this.btnFinish.BackColor = System.Drawing.Color.FromArgb(40, 167, 69);
+            this.btnFinish.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinish.FlatAppearance.BorderSize = 0;
+            this.btnFinish.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.btnFinish.ForeColor = System.Drawing.Color.White;
+            this.btnFinish.Location = new System.Drawing.Point(590, 20);
+            this.btnFinish.Name = "btnFinish";
+            this.btnFinish.Size = new System.Drawing.Size(570, 60);
+            this.btnFinish.Text = "✅ Finish & Save Prescription";
+            this.btnFinish.UseVisualStyleBackColor = false;
+            this.btnFinish.Click += new System.EventHandler(this.btnFinish_Click);
+            this.btnFinish.MouseEnter += new System.EventHandler(this.btnFinish_MouseEnter);
+            this.btnFinish.MouseLeave += new System.EventHandler(this.btnFinish_MouseLeave);
+
+            // CheckupForm
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(248, 249, 250);
+            this.ClientSize = new System.Drawing.Size(1200, 800);
+            this.Controls.Add(this.pnlMainContainer);
+            this.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            this.MaximizeBox = true;
+            this.MinimizeBox = true;
+            this.MinimumSize = new System.Drawing.Size(1000, 700);
+            this.Name = "CheckupForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Patient Checkup - Hospital Management System";
+            this.Load += new System.EventHandler(this.CheckupForm_Load);
+            this.Resize += new System.EventHandler(this.CheckupForm_Resize);
+
+            this.pnlMainContainer.ResumeLayout(false);
+            this.pnlContent.ResumeLayout(false);
+            this.pnlTopBar.ResumeLayout(false);
+            this.pnlTopBar.PerformLayout();
+            this.pnlInfoCards.ResumeLayout(false);
+            this.pnlDoctorCard.ResumeLayout(false);
+            this.pnlDoctorCard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDoctorIcon)).EndInit();
+            this.pnlPatientCard.ResumeLayout(false);
+            this.pnlPatientCard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPatientIcon)).EndInit();
+            this.pnlDateCard.ResumeLayout(false);
+            this.pnlDateCard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDateIcon)).EndInit();
+            this.pnlMedicineCard.ResumeLayout(false);
+            this.grpMedicines.ResumeLayout(false);
+            this.grpMedicines.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picMedicineIcon)).EndInit();
+            this.pnlNotesCard.ResumeLayout(false);
+            this.pnlNotesCard.PerformLayout();
+            this.pnlActionButtons.ResumeLayout(false);
+            this.ResumeLayout(false);
+        }
+
+        // Enhanced Event Handlers and Custom Drawing Methods
+        private void btnToggleFullScreen_Click(object sender, EventArgs e)
+        {
+            if (this.FormBorderStyle == System.Windows.Forms.FormBorderStyle.Sizable)
+            {
+                this.lastWindowState = this.WindowState;
+                this.lastWindowSize = this.Size;
+                this.lastWindowLocation = this.Location;
+
+                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+                this.btnToggleFullScreen.Text = "⛶ Exit Full Screen";
+            }
+            else
+            {
+                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+                this.WindowState = this.lastWindowState;
+                this.Size = this.lastWindowSize;
+                this.Location = this.lastWindowLocation;
+                this.btnToggleFullScreen.Text = "⛶ Full Screen";
+            }
+        }
+
+        private void btnToggleFullScreen_MouseEnter(object sender, EventArgs e)
+        {
+            this.btnToggleFullScreen.BackColor = System.Drawing.Color.FromArgb(90, 98, 104);
+        }
+
+        private void btnToggleFullScreen_MouseLeave(object sender, EventArgs e)
+        {
+            this.btnToggleFullScreen.BackColor = System.Drawing.Color.FromArgb(108, 117, 125);
+        }
+
+        private void txtNotes_Enter(object sender, EventArgs e)
+        {
+            if (txtNotes.Text == "Enter any additional notes or special instructions here...")
+            {
+                txtNotes.Text = "";
+                txtNotes.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+            }
+        }
+
+        private void txtNotes_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNotes.Text))
+            {
+                txtNotes.Text = "Enter any additional notes or special instructions here...";
+                txtNotes.ForeColor = System.Drawing.Color.FromArgb(108, 117, 125);
+            }
+        }
+
+        private void lstMedicines_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+
+            ListBox lb = sender as ListBox;
+            MedicineInfo medicine = lb.Items[e.Index] as MedicineInfo;
+
+            e.DrawBackground();
+
+            // Draw selection background
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                using (SolidBrush brush = new SolidBrush(Color.FromArgb(40, 167, 69)))
+                {
+                    e.Graphics.FillRectangle(brush, e.Bounds);
+                }
+            }
+            else
+            {
+                using (SolidBrush brush = new SolidBrush(Color.White))
+                {
+                    e.Graphics.FillRectangle(brush, e.Bounds);
+                }
+            }
+
+            // Draw border
+            using (Pen pen = new Pen(Color.FromArgb(233, 236, 239), 1))
+            {
+                e.Graphics.DrawRectangle(pen, e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1);
+            }
+
+            // Draw text
+            Color textColor = (e.State & DrawItemState.Selected) == DrawItemState.Selected ? 
+                Color.White : Color.FromArgb(33, 37, 41);
+
+            using (SolidBrush textBrush = new SolidBrush(textColor))
+            {
+                Font font = new Font("Segoe UI", 11F, FontStyle.Regular);
+                string text = $"💊 {medicine.Name} - {medicine.Dosage} {medicine.Unit}";
+                e.Graphics.DrawString(text, font, textBrush, e.Bounds.X + 10, e.Bounds.Y + 5);
+            }
+
+            e.DrawFocusRectangle();
+        }
+
+        private void DrawCardShadow(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            Rectangle rect = new Rectangle(0, 0, panel.Width, panel.Height);
+
+            // Draw subtle shadow
+            using (SolidBrush shadowBrush = new SolidBrush(Color.FromArgb(10, 0, 0, 0)))
+            {
+                e.Graphics.FillRectangle(shadowBrush, rect.X + 2, rect.Y + 2, rect.Width, rect.Height);
+            }
+
+            // Draw main background
+            using (SolidBrush backgroundBrush = new SolidBrush(panel.BackColor))
+            {
+                e.Graphics.FillRectangle(backgroundBrush, rect);
+            }
+
+            // Draw border
+            using (Pen borderPen = new Pen(Color.FromArgb(233, 236, 239), 1))
+            {
+                e.Graphics.DrawRectangle(borderPen, rect.X, rect.Y, rect.Width - 1, rect.Height - 1);
+            }
+        }
+
+        private void DrawTextBoxBorder(object sender, PaintEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            Rectangle rect = new Rectangle(0, 0, textBox.Width - 1, textBox.Height - 1);
+
+            using (Pen borderPen = new Pen(Color.FromArgb(206, 212, 218), 2))
+            {
+                e.Graphics.DrawRoundedRectangle(borderPen, rect, 8);
+            }
+        }
+
+        private void DrawDoctorIcon(object sender, PaintEventArgs e)
+        {
+            PictureBox pic = sender as PictureBox;
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            // Fill background circle
+            using (SolidBrush brush = new SolidBrush(pic.BackColor))
+            {
+                e.Graphics.FillEllipse(brush, 5, 5, 50, 50);
+            }
+
+            // Draw doctor icon (simplified stethoscope)
+            using (Pen pen = new Pen(Color.White, 3))
+            {
+                // Stethoscope head
+                e.Graphics.DrawEllipse(pen, 20, 15, 20, 20);
+                // Stethoscope tubes
+                e.Graphics.DrawLine(pen, 30, 35, 25, 45);
+                e.Graphics.DrawLine(pen, 30, 35, 35, 45);
+            }
+        }
+
+        private void DrawPatientIcon(object sender, PaintEventArgs e)
+        {
+            PictureBox pic = sender as PictureBox;
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            // Fill background circle
+            using (SolidBrush brush = new SolidBrush(pic.BackColor))
+            {
+                e.Graphics.FillEllipse(brush, 5, 5, 50, 50);
+            }
+
+            // Draw patient icon (person silhouette)
+            using (SolidBrush brush = new SolidBrush(Color.White))
+            {
+                // Head
+                e.Graphics.FillEllipse(brush, 25, 15, 10, 10);
+                // Body
+                e.Graphics.FillEllipse(brush, 22, 25, 16, 20);
+            }
+        }
+
+        private void DrawDateIcon(object sender, PaintEventArgs e)
+        {
+            PictureBox pic = sender as PictureBox;
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            // Fill background circle
+            using (SolidBrush brush = new SolidBrush(pic.BackColor))
+            {
+                e.Graphics.FillEllipse(brush, 5, 5, 50, 50);
+            }
+
+            // Draw calendar icon
+            using (Pen pen = new Pen(Color.White, 2))
+            {
+                // Calendar outline
+                e.Graphics.DrawRectangle(pen, 18, 20, 24, 20);
+                // Calendar header
+                e.Graphics.DrawLine(pen, 18, 25, 42, 25);
+                // Calendar rings
+                e.Graphics.DrawLine(pen, 25, 15, 25, 20);
+                e.Graphics.DrawLine(pen, 35, 15, 35, 20);
+            }
+        }
+
+        private void CheckupForm_Resize(object sender, EventArgs e)
+        {
+            // Update medicine count when form is resized
+            UpdateMedicineCount();
+        }
+
+        private void UpdateMedicineCount()
+        {
+            if (lblMedicineCount != null && selectedMedicines != null)
+            {
+                lblMedicineCount.Text = $"{selectedMedicines.Count} medicine(s) added";
+            }
+        }
+    }
+
+    // Extension method for rounded rectangles
+    public static class GraphicsExtensions
+    {
+        public static void DrawRoundedRectangle(this Graphics graphics, Pen pen, Rectangle rect, int cornerRadius)
+        {
+            using (System.Drawing.Drawing2D.GraphicsPath path = CreateRoundedRectanglePath(rect, cornerRadius))
+            {
+                graphics.DrawPath(pen, path);
+            }
+        }
+
+        public static void FillRoundedRectangle(this Graphics graphics, Brush brush, Rectangle rect, int cornerRadius)
+        {
+            using (System.Drawing.Drawing2D.GraphicsPath path = CreateRoundedRectanglePath(rect, cornerRadius))
+            {
+                graphics.FillPath(brush, path);
+            }
+        }
+
+        private static System.Drawing.Drawing2D.GraphicsPath CreateRoundedRectanglePath(Rectangle rect, int cornerRadius)
+        {
+            int diameter = cornerRadius * 2;
+            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+
+            if (cornerRadius == 0)
+            {
+                path.AddRectangle(rect);
+                return path;
+            }
+
+            // Top left arc
+            path.AddArc(rect.X, rect.Y, diameter, diameter, 180, 90);
+
+            // Top right arc
+            path.AddArc(rect.Right - diameter, rect.Y, diameter, diameter, 270, 90);
+
+            // Bottom right arc
+            path.AddArc(rect.Right - diameter, rect.Bottom - diameter, diameter, diameter, 0, 90);
+
+            // Bottom left arc
+            path.AddArc(rect.X, rect.Bottom - diameter, diameter, diameter, 90, 90);
+
+            path.CloseFigure();
+            return path;
+        }
+    }
+}
